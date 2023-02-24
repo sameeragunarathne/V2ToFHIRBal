@@ -5,6 +5,10 @@ import wso2healthcare/healthcare.fhir.r4;
 import wso2healthcare/healthcare.hl7v23;
 import ballerina/io;
 
+
+configurable string hl7ServerIP = "localhost";
+configurable int hl7ServerPort = 9988;
+
 # A service representing a FHIR Patient API
 # bound to port `9090`.
 service / on new http:Listener(9090) {
@@ -42,7 +46,7 @@ service / on new http:Listener(9090) {
         
         do {
             //sending query message to HL7 server
-            hl7:HL7Client hl7Client = check new ("localhost", 9988);
+            hl7:HL7Client hl7Client = check new (hl7ServerIP, hl7ServerPort);
             byte[]|hl7:HL7Error response = hl7Client.sendMessage(encodedQRYA19);
 
             if response is byte[] {
