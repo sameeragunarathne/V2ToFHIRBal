@@ -165,12 +165,6 @@ public function GetHL7_PID_MaritalStatus(string pid16) returns r4:Coding[] {
     return maritialStatues;
 }
 
-// public function GetHL7_PID_Religion(string pid17) returns r4:Extension[]{
-//     r4:Extension[] extensions = [{url: pid16}];
-
-//     return  extensions;
-// }
-
 # Get FHIR r4 identifier
 #
 # + pid19 - SSN Number - Patient (in hl7:PID)
